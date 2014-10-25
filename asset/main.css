@@ -72,7 +72,7 @@ html, body {
 }
 #header {
 	width: 100%;
-	background-image: url(https://raw.githubusercontent.com/purinxxx/tumblr/master/asset/bg1.jpg);
+	background-image: url(bg1.jpg);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
