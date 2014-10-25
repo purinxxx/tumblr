@@ -1,0 +1,317 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Design Note</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="pinterestgrid.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="pinterestGrid.js"></script>
+<script>
+$(function(){
+    var box    = $("#menu-wrap");
+    var boxTop = box.offset().top;
+    $(window).scroll(function () {
+        if($(window).scrollTop() >= boxTop) {
+            box.addClass("fixed");
+			$("body").css("margin-top","40px");
+        } else {
+            box.removeClass("fixed");
+			$("body").css("margin-top","0px");
+        }
+    });
+	$(window).on('load', function() {
+        $('#container').pinterestGrid({
+            offsetX: 8,
+            offsetY: 8,
+            gridElement: '.grid'
+        });
+    });
+	$(document).ready(function(){
+  		var x = $(window).width() - $(window).width() % 286;
+		$('#container').css("width",x);
+  });
+});
+</script>
+</head>
+
+<body>
+
+<div id="header">
+<p> </p>
+</div>
+
+<div id="menu-wrap">
+	<ul id="menu">
+		<div id="tittle">
+		  <li><a href="#" style="font-size:20px";>Design Note</a></li>
+		</div>
+		<div id="kotei">
+			<li><a href="#">About</a></li>
+			<li><a href="#">Works</a></li>
+			<li><a href="#">Archibe</a></li>
+		</div>
+  </ul>
+</div>
+
+
+<div id="container">
+
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://40.media.tumblr.com/f0ae9f9bea12cb8b8c78812cc3e89f72/tumblr_nc8rw7CaGe1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/d10209ed8f76f9b548ba55a74de19787/tumblr_naunbpE0Y71spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/11386934e48a9ef39d1cfee601c4ec3b/tumblr_naunb9FJ7g1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://40.media.tumblr.com/99333f5eceb3e73d64b0ba4f712856d4/tumblr_nadhkwPYIx1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/62e4c5020ab14d07f58f1d9fb13ba2e5/tumblr_n4nycpbGj51spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://40.media.tumblr.com/77219da4327f35050a5e1d2ee6ff7718/tumblr_n1f9sox2QP1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://40.media.tumblr.com/3b53fbb9f16d36d27173d3970973be81/tumblr_n1124mgmF81spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://40.media.tumblr.com/8afccaeebcc32885a7d748c92367aebb/tumblr_n1123x4l9M1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://40.media.tumblr.com/031eda9a630594c42c130e91bdbcdb5b/tumblr_mwy8mkFewb1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/78ea802b040274b3b1ce26c77850e74a/tumblr_mv0gcudOxM1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://40.media.tumblr.com/a778f52e12225a08b3fd2330fea1fbb4/tumblr_muxa4gH3SW1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/539aa91d1f159c003e267268d4eebc77/tumblr_ms35lraCpT1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://36.media.tumblr.com/da168950f404bd3ff197da7b3e145d8c/tumblr_mr6iu3pqvi1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://40.media.tumblr.com/7b877ec30121e1c74c51dd07a4772337/tumblr_mqzcdxp8AV1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://40.media.tumblr.com/7ff386b046638ce34756e3bb3189bec7/tumblr_mnh034iiGv1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/b1a876a78210087951a1d45a73139604/tumblr_mn9b0w3R8V1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/843dd87d72e2f800d2dcbf7d00bd0aac/tumblr_mm0yxu0r7N1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/ba8506f2746f49d36a4ebcd31d55dc09/tumblr_mm0yxjM6Wy1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://36.media.tumblr.com/535824ccdecd4f7d05d14da5eb35f384/tumblr_mm0yx5c9dp1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/8429387eef7b7beacb5a35bbb651a466/tumblr_mm0ywuG2371spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/b8d5329828cde377dc23072fddbda9b2/tumblr_mm0ywhJzMU1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://36.media.tumblr.com/33162ba8d00ffe2383c4d778980b208a/tumblr_mm0yw46RTF1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/ca4a90a6baa69e0ad94d4db920790ad8/tumblr_mm0yvcwSbX1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://41.media.tumblr.com/ac81400e70281f74081db374366d6e83/tumblr_mm0yv0WrEJ1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+        
+	<div class="grid">
+		<div class="imgholder">
+			<img src="http://40.media.tumblr.com/c4b61853ebb8040b4ef4b5ef7b2aadac/tumblr_mm0yuonkpF1spau4eo1_1280.jpg">
+		</div>
+      <p>Here is caption.<br>
+        ここに画像の説明を書きます。<br>
+        <a href="#">URLも入ります。</a> リブログ、スキ、notesボタン実装予定です。</p>
+        <div class="meta">October 25, 2014</div>
+	</div>
+    
+</div>
+
+
+
+
+</body>
+</html>
