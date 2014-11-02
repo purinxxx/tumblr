@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="image:Header" content=""/>
 <meta name="text:post width px between250and400" content="300"/>
-<title>{Title}</title><meta name="viewport" content="width=device-width">
+<title>{block:PostSummary}{PostSummary}  -  {/block:PostSummary}{Title}</title><meta name="viewport" content="width=device-width">
 <link rel="stylesheet" type="text/css" href="http://dnote.biz/libs/jquery.fancybox.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://dnote.biz/libs/jquery.pinterestGrid.js"></script>
@@ -12,38 +12,42 @@
 <script src="http://dnote.biz/libs/jquery.fancybox.pack.js"></script>
 <script>
 $(function(){
-    function sleep(time, callback){
-        setTimeout(callback, time);
-    }
     function video(){
         var videox = {text:post width px between250and400} - 250;
-	    var videoy = videox / 2;
-		$(".video").css("margin-left",videoy);
+        var videoy = videox / 2;
+        $(".video").css("margin-left",videoy);
+        var videox2 = 600 - 500;
+        var videoy2 = videox2 / 2;
+        $(".video2").css("margin-left",videoy2);
+    }
+    $(document).ready(function(){
+        var w = {text:post width px between250and400} + 28;
+        var x = $(window).width() - $(window).width() % w;
+        $('#container').css("width",x);
+        $(".fancybox").fancybox();
+        video();
+    });
+    {block:IndexPage}
+    function sleep(time, callback){
+        setTimeout(callback, time);
     }
     var box    = $("#menu-wrap");
     var boxTop = box.offset().top;
     $(window).scroll(function () {
         if($(window).scrollTop() >= boxTop) {
             box.addClass("fixed");
-			$("body").css("margin-top","50px");
+            $("body").css("margin-top","50px");
         } else {
             box.removeClass("fixed");
-			$("body").css("margin-top","0px");
+            $("body").css("margin-top","0px");
         }
     });
-	$(window).load(function () {
+    $(window).load(function () {
         $('#container').pinterestGrid({
             offsetX: 8,
             offsetY: 8,
             gridElement: '.grid'
         });
-	});
-	$(document).ready(function(){
-	    var w = {text:post width px between250and400} + 28;
-  		var x = $(window).width() - $(window).width() % w;
-		$('#container').css("width",x);
-		$(".fancybox").fancybox();
-	    video();
     });
     $.autopager({
         content: '.grid',
@@ -54,6 +58,7 @@ $(function(){
             video();
         }
     });
+    {/block:IndexPage}
 });
 </script>
 <style type="text/css">
@@ -62,9 +67,10 @@ html, body {
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
-    background-color: #F8F8F8;
+    background-color: #f4f4f4;
 }
 #menu-wrap {
+    {block:PermalinkPage}position: fixed;{/block:PermalinkPage}
     width: 100%;
     height: 55px;
     background-color: #394D62;
@@ -182,7 +188,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endCo
     text-decoration: none;
     color: #000000;
 }
-.grid .imgholder img {
+.grid img {
     background: #ccc;
     display: inline-block;
     width: 100%;
@@ -195,6 +201,14 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endCo
   font-size: 18px;
   border-bottom: 1px dashed #ccc;
   padding-bottom: 4px;
+}
+.date {
+    color: #777;
+    font-style: italic;
+    font-size: 12px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 2px;
 }
 .body {
   padding-top: 4px;
@@ -210,33 +224,87 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endCo
   border-top: 1px solid #ccc;
 }
 .grid .meta p {
-	color: #777;
-	font-style: italic;
-	text-align: left;
-	float: left;
-	padding-left: 6px;
-	margin-top: 4px;
+    color: #777;
+    font-style: italic;
+    text-align: left;
+    float: left;
+    padding-left: 6px;
+    margin-top: 4px;
 }
 .grid .meta .buttons {
-	float: right;
-	padding-left: 6px;
+    float: right;
+    padding-left: 6px;
 }
 .pagination {
-	list-style-type: none;
+    list-style-type: none;
     clear: both;
 }
 .like_button  , .reblog_button {
-	float: left;
+    float: left;
     padding-top: 2px;
-	padding-right: 6px;
-	padding-left: 4px;
+    padding-right: 6px;
+    padding-left: 4px;
 }
-.grid blockquote{
+blockquote{
     padding-left: 5px;
     border-left: solid 3px #d4d2d2;
 }
 .video{
     margin-left: 0px;
+}
+.video2{
+    margin-left: 0px;
+}
+.biggrid {
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+    font-size: 12px;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 4px;
+    width: 600px;
+    margin-top: 62px;
+    margin-right: auto;
+    margin-bottom: 12px;
+    margin-left: auto;
+    word-break: break-all;
+}
+.biggrid a {
+    text-decoration: none;
+    color: #000000;
+}
+.biggrid img  {
+    background: #ccc;
+    display: inline-block;
+    width: 100%;
+}
+.biggrid p {
+    display: block;
+    margin: 2px 0;
+}
+.biggrid p a {
+    text-decoration: none;
+    color: #fa3599;
+    font-weight: bold;
+}
+.biggrid .meta {
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid #ccc;
+    padding-bottom: 27px;
+}
+.biggrid .meta p {
+    color: #777;
+    font-style: italic;
+    text-align: left;
+    padding-left: 6px;
+    margin-top: 4px;
+    float: left;
+}
+.biggrid .meta .buttons {
+    padding-left: 6px;
+    float: right;
 }
 </style>
 </head>
@@ -250,41 +318,41 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endCo
 {/block:IndexPage}
 
 <div id="menu-wrap">
-	<ul id="menu">
-		<div id="tittle">
-		  <li><a href="/" style="font-size:20px";>{Title}</a></li>
-		</div>
-		<div id="kotei">
-			{block:HasPages}
+    <ul id="menu">
+        <div id="tittle">
+          <li><a href="/" style="font-size:20px";>{Title}</a></li>
+        </div>
+        <div id="kotei">
+            {block:HasPages}
             {block:Pages}
             <li>
                 <a href="{URL}">{Label}</a>
             </li>
             {/block:Pages}
             {/block:HasPages}
-			<li><a href="archive">Archibe</a></li>
-		</div>
+            <li><a href="/archive">Archibe</a></li>
+        </div>
   </ul>
 </div>
 
 {block:IndexPage}
 <div id="container">
 {block:Posts}
-	<div class="grid">
-	
-	    {block:Text}
+    <div class="grid">
+    
+        {block:Text}
         {block:Title}<p class="title">{Title}</p>{/block:Title}
         <p class="body">{Body}</p>
         {/block:Text}
         
-	    {block:Photo}
-		<a href="{PhotoURL-HighRes}" class="fancybox"><div class="imgholder"><img src="{PhotoURL-500}"></div></a>
+        {block:Photo}
+        <a href="{PhotoURL-HighRes}" class="fancybox"><div class="imgholder"><img src="{PhotoURL-500}"></div></a>
         {block:Caption}<p>{Caption}</p>{/block:Caption}
         {/block:Photo}
         
         {block:Photoset}
         {block:Photos}
-		<a href="{PhotoURL-HighRes}" class="fancybox" rel="{PostID}"><div class="imgholder"><img src="{PhotoURL-500}"></div></a>
+        <a href="{PhotoURL-HighRes}" class="fancybox" rel="{PostID}"><div class="imgholder"><img src="{PhotoURL-500}"></div></a>
         {/block:Photos}
         {block:Caption}<p>{Caption}</p>{/block:Caption}
         {/block:Photoset}
@@ -306,24 +374,24 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endCo
         {block:Lines}<p class="body">{block:Label}<p>{Label}</p>{/block:Label}{Line}</p>{/block:Lines}
         {/block:Chat}
         
-	    {block:Audio}
+        {block:Audio}
         {AudioPlayer}
         {block:Caption}<p>{Caption}</p>{/block:Caption}
         {/block:Audio}
         
-	    {block:Video}
-	    <div class="video">{Video-250}</div>
+        {block:Video}
+        <div class="video">{Video-250}</div>
         {block:Caption}<p>{Caption}</p>{/block:Caption}
         {/block:Video}
         
-	    {block:Answer}
+        {block:Answer}
         <p>{Question}</p>
         <p>{Answer}</p>
         <p>{Asker}</p>
         {/block:Answer}
         
         <div class="meta">{block:NoteCount}<p>{NoteCountWithLabel}</p>{/block:NoteCount}<span class="buttons">{ReblogButton}{LikeButton}</span></div>
-	</div>
+    </div>
 {/block:Posts}
 </div>
 
@@ -356,21 +424,21 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endCo
       </div>
 
 {block:Posts}
-	<div class="grid">
-	
-	    {block:Text}
-        {block:Title}<p>{Title}</p>{/block:Title}
+    <div class="biggrid">
+    
+        {block:Text}
+        {block:Title}<p class="title">{Title}</p>{/block:Title}
         <p>{Body}</p>
         {/block:Text}
         
-	    {block:Photo}
-		<div class="imgholder"><img src="{PhotoURL-HighRes}"></div>
+        {block:Photo}
+        <a href="{PhotoURL-HighRes}" class="fancybox"><div class="imgholder"><img src="{PhotoURL-HighRes}"></div></a>
         {block:Caption}<p>{Caption}</p>{/block:Caption}
         {/block:Photo}
         
         {block:Photoset}
         {block:Photos}
-        <div class="imgholder"><img src="{PhotoURL-HighRes}"></div>
+        <a href="{PhotoURL-HighRes}" class="fancybox" rel="{PostID}"><div class="imgholder"><img src="{PhotoURL-HighRes}"></div></a>
         {/block:Photos}
         {block:Caption}<p>{Caption}</p>{/block:Caption}
         {/block:Photoset}
@@ -388,27 +456,27 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endCo
         {/block:Link}
         
         {block:Chat}
-        {block:Title}<p>{Title}</p>{/block:Title}
+        {block:Title}<p class="title">{Title}</p>{/block:Title}
         {block:Lines}<p>{block:Label}<p>{Label}</p>{/block:Label}{Line}</p>{/block:Lines}
         {/block:Chat}
         
-	    {block:Audio}
+        {block:Audio}
         {AudioPlayer}
         {block:Caption}<p>{Caption}</p>{/block:Caption}
         {/block:Audio}
         
-	    {block:Video}
-        {Video-250}
+        {block:Video}
+        <div class="video2">{Video-500}</div>
         {block:Caption}<p>{Caption}</p>{/block:Caption}
         {/block:Video}
         
-	    {block:Answer}
+        {block:Answer}
         <p>{Question}</p>
         <p>{Answer}</p>
         <p>{Asker}</p>
         {/block:Answer}
         
-        {block:Date}<div class="meta">{LikeButton}{ReblogButton}<p>{TimeAgo}</p>{block:NoteCount}<p>{NoteCountWithLabel} / </p>{/block:NoteCount}</div>{/block:Date}
+        <div class="meta">{block:NoteCount}<p>{NoteCountWithLabel}</p>{/block:NoteCount}<span class="buttons">{ReblogButton}{LikeButton}</span></div>
     </div>
 {/block:Posts}
 
