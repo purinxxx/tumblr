@@ -52,8 +52,8 @@ $(function(){
         content: '.grid',
         link: '.pagination li a.pagination_nextlink',
         load: function(current, next) {
-            sleep(50, function (){$('#container').pinterestGrid();});
-            sleep(150, function (){$('#container').pinterestGrid();});
+            sleep(100, function (){$('#container').pinterestGrid();});
+            sleep(300, function (){$('#container').pinterestGrid();});
             video();
         }
     });
@@ -400,11 +400,17 @@ blockquote{
         <p>{Asker}</p>
         {/block:Answer}
         
-        <div class="meta">{block:NoteCount}<p>{NoteCountWithLabel}</p>{/block:NoteCount}<span class="buttons"><a class="fancybox" href="#{PostID}"><img src="http://dnote.biz/libs//share.png" style="width:24px; float:left; margin-right:6px; margin-top:1px" /></a>{ReblogButton}{LikeButton}</span></div>
-    </div>
+<div class="meta">{block:NoteCount}<p>{NoteCountWithLabel}</p>{/block:NoteCount}<span class="buttons"><a class="fancybox" href="#{PostID}"><img src="http://dnote.biz/libs//share.png" style="width:24px; float:left; margin-right:6px; margin-top:1px" /></a>{ReblogButton}{LikeButton}</span></div>
     
 <div id="{PostID}" style="display:none;width:500px;">
-<p>{PostID}</p> 
+<p>{PostID}</p>
+<a href="http://twitter.com/share?text={URLEncodedTweetSummary}" target="_blank" onClick="$.fancybox.close()"><p>Twitter</p></a>
+<a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank" onClick="$.fancybox.close()"><p>Facebook</p></a>
+<a href="https://plus.google.com/share?url={Permalink}" target="_blank" onClick="$.fancybox.close()">google+</a>
+<a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}" target="_blank" onClick="$.fancybox.close()"><p>Mail</p></a>
+<a href="{Permalink}" onClick="$.fancybox.close()"><p>Open</p></a>
+</div>
+
 </div>
 
 {/block:Posts}
@@ -492,7 +498,12 @@ Yeah!
     </div>
     
 <div id="{PostID}" style="display:none;width:500px;">
-<p>{PostID}</p> 
+<p>{PostID}</p>
+<a href="http://twitter.com/share?text={URLEncodedTweetSummary}" target="_blank" onClick="$.fancybox.close()"><p>Twitter</p></a>
+<a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank" onClick="$.fancybox.close()"><p>Facebook</p></a>
+<a href="https://plus.google.com/share?url={Permalink}" target="_blank" onClick="$.fancybox.close()">google+</a>
+<a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}" target="_blank" onClick="$.fancybox.close()"><p>Mail</p></a>
+<a href="{Permalink}" onClick="$.fancybox.close()"><p>Open</p></a>
 </div>
 {/block:Posts}
 
