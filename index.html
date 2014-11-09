@@ -3,16 +3,52 @@
 <head>
 <meta charset="UTF-8">
 
-<meta name="text:html lang" content=""/>
-<meta name="text:post width px index" content="300"/>
-<meta name="text:post width px permalink" content="600"/>
 <meta name="color:background" content="#f4f4f4"/>
 <meta name="color:menu gradation top" content="#334d67"/>
 <meta name="color:menu gradation bottom" content="#2b455f"/>
+<meta name="font:tittle font" content="Times New Roman, Times, serif"/>
 <meta name="font:menu font" content="Times New Roman, Times, serif"/>
+<meta name="font:post tittle font" content=""/>
 <meta name="font:post font" content=""/>
+<meta name="text:post width px index" content="300"/>
+<meta name="text:post width px permalink" content="600"/>
+<meta name="text:html lang" content=""/>
 
 <title>{block:PostSummary}{PostSummary}  -  {/block:PostSummary}{Title}</title><meta name="viewport" content="width=device-width">
+
+<link rel="shortcut icon" href="{Favicon}">
+  <link rel="alternate" type="application/rss+xml" href="{RSS}">
+  <link rel="apple-touch-icon" href="{PortraitURL-128}">
+  {block:IndexPage}
+    <link rel="canonical" href="{BlogURL}"/>
+    <meta property="og:url" content="{BlogURL}" />
+  {/block:IndexPage}
+  {block:PermalinkPage}
+    <link rel="canonical" href="{Permalink}"/>
+    <meta property="og:url" content="{Permalink}" />
+  {/block:PermalinkPage}
+  <!-- OGP -->
+  <meta property="og:title" content="{block:PostTitle}{PostTitle} - {/block:PostTitle}{Title}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="{PortraitURL-128}" />
+  <!-- Twitter tags -->
+  <meta name="twitter:image" content="{PortraitURL-128}" />
+  <!-- photo だったら og-image はphotoURLにする -->
+  {block:PermalinkPage}
+    {block:Posts}
+      {block:Photo}
+        <meta property="og:image" content="{PhotoURL-400}" />
+      {/block:Photo}
+      {block:Photoset}
+        {block:Photos}
+        <meta property="og:image" content="{PhotoURL-400}" />
+        {/block:Photos}
+      {/block:Photoset}
+    {/block:Posts}
+  {/block:PermalinkPage}
+  <meta property="og:site_name" content="{Title}" />
+  <meta property="og:description" content="{block:Description}{MetaDescription}{/block:Description}">
+
 <link rel="stylesheet" type="text/css" href="http://dnote.biz/libs/jquery.fancybox.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://dnote.biz/libs/jquery.pinterestGrid.js"></script>
@@ -128,7 +164,6 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='{color:menu gr
     font-weight: bold;
     line-height: 1;
     text-decoration: none;
-    font-family: {font:menu font};
 }
 .fixed{
   position: fixed;
@@ -147,9 +182,11 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='{color:menu gr
 }
 #tittle li a {
     color: #FFFFFF;
+    font-family: {font:tittle font};
 }
 #kotei li a  {
     padding-top: 25px;
+    font-family: {font:menu font};
 }
 #kotei li a:hover   {
     color: #E6E6E6;
@@ -207,17 +244,9 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='{color:menu gr
   margin: 2px 0;
 }
 .title {
-  font-size: 18px;
   border-bottom: 1px dashed #ccc;
   padding-bottom: 4px;
-}
-.date {
-    color: #777;
-    font-style: italic;
-    font-size: 12px;
-    float: right;
-    margin-top: 10px;
-    margin-right: 2px;
+  font-family: {font:post tittle font};
 }
 .body {
   padding-top: 4px;
@@ -326,6 +355,7 @@ blockquote{
     right   : 0;
     margin-right: 5%;
 }
+{CustomCSS}
 </style>
 </head>
 
@@ -361,7 +391,7 @@ blockquote{
     <div class="grid">
     
         {block:Text}
-        {block:Title}<p class="title">{Title}</p>{/block:Title}
+        {block:Title}<h2 class="title">{Title}</h2>{/block:Title}
         <p class="body">{Body}</p>
         {/block:Text}
         
@@ -390,7 +420,7 @@ blockquote{
         {/block:Link}
         
         {block:Chat}
-        {block:Title}<p class="title">{Title}</p>{/block:Title}
+        {block:Title}<h2 class="title">{Title}</h2>{/block:Title}
         {block:Lines}<p class="body">{block:Label}<p>{Label}</p>{/block:Label}{Line}</p>{/block:Lines}
         {/block:Chat}
         
@@ -454,7 +484,7 @@ Yeah!
     <div class="biggrid">
     
         {block:Text}
-        {block:Title}<p class="title">{Title}</p>{/block:Title}
+        {block:Title}<h1 class="title">{Title}</h1>{/block:Title}
         <p>{Body}</p>
         {/block:Text}
         
@@ -483,7 +513,7 @@ Yeah!
         {/block:Link}
         
         {block:Chat}
-        {block:Title}<p class="title">{Title}</p>{/block:Title}
+        {block:Title}<h1 class="title">{Title}</h1>{/block:Title}
         {block:Lines}<p>{block:Label}<p>{Label}</p>{/block:Label}{Line}</p>{/block:Lines}
         {/block:Chat}
         
@@ -517,5 +547,15 @@ Yeah!
 
 {/block:PermalinkPage}
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '{text:Google Analytics ID}', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>
