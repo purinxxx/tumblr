@@ -1,8 +1,17 @@
 <!doctype html>
-<html>
+<HTML lang="{text:html lang}">
 <head>
 <meta charset="UTF-8">
-<meta name="text:post width px between250and400" content="300"/>
+
+<meta name="text:html lang" content=""/>
+<meta name="text:post width px index" content="300"/>
+<meta name="text:post width px permalink" content="600"/>
+<meta name="color:background" content="#f4f4f4"/>
+<meta name="color:menu gradation top" content="#334d67"/>
+<meta name="color:menu gradation bottom" content="#2b455f"/>
+<meta name="font:menu font" content="Times New Roman, Times, serif"/>
+<meta name="font:post font" content=""/>
+
 <title>{block:PostSummary}{PostSummary}  -  {/block:PostSummary}{Title}</title><meta name="viewport" content="width=device-width">
 <link rel="stylesheet" type="text/css" href="http://dnote.biz/libs/jquery.fancybox.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -12,15 +21,15 @@
 <script>
 $(function(){
     function video(){
-        var videox = {text:post width px between250and400} - 250;
+        var videox = {text:post width px index} - 250;
         var videoy = videox / 2;
         $(".video").css("margin-left",videoy);
-        var videox2 = 600 - 500;
+        var videox2 = {text:post width px permalink} - 500;
         var videoy2 = videox2 / 2;
         $(".video2").css("margin-left",videoy2);
     }
     $(document).ready(function(){
-        var w = {text:post width px between250and400} + 28;
+        var w = {text:post width px index} + 28;
         var x = $(window).width() - $(window).width() % w;
         $('#container').css("width",x);
         $(".fancybox").fancybox();
@@ -66,26 +75,27 @@ html, body {
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
-    background-color: #f4f4f4;
+    background-color: {color:background};
+    font-family: {font:post font};
 }
 #menu-wrap {
     {block:PermalinkPage}position: fixed;{/block:PermalinkPage}
     width: 100%;
-    height: 55px;
+    height: 50px;
     background-color: #394D62;
     -webkit-box-shadow: 0px 2px 10px -4px #333;
     z-index: 1000;
     border-bottom: 1px solid #000;
     border-top: 1px solid #000;
     box-shadow: 0 1px 4px rgba(0,0,0,0.3),inset 0 1px 0 #51677e,inset 0 -1px 0 #364e67;
-    background: #334d67;
-    background: -moz-linear-gradient(top,#334d67 0,#2b455f 100%);
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#334d67),color-stop(100%,#2b455f));
-    background: -webkit-linear-gradient(top,#334d67 0,#2b455f 100%);
-    background: -o-linear-gradient(top,#334d67 0,#2b455f 100%);
-    background: -ms-linear-gradient(top,#334d67 0,#2b455f 100%);
-    background: linear-gradient(to bottom,#334d67 0,#2b455f 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endColorstr='#2b455f',GradientType=0);
+    background: {color:menu gradation top};
+    background: -moz-linear-gradient(top,{color:menu gradation top} 0,#2b455f 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,{color:menu gradation top}),color-stop(100%,{color:menu gradation bottom}));
+    background: -webkit-linear-gradient(top,{color:menu gradation top} 0,{color:menu gradation bottom} 100%);
+    background: -o-linear-gradient(top,{color:menu gradation top} 0,{color:menu gradation bottom} 100%);
+    background: -ms-linear-gradient(top,{color:menu gradation top} 0,{color:menu gradation bottom} 100%);
+    background: linear-gradient(to bottom,{color:menu gradation top} 0,{color:menu gradation bottom} 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='{color:menu gradation top}',endColorstr='{color:menu gradation bottom}',GradientType=0);
 -webkit-font-smoothing: antialiased;
 }
 #menu {
@@ -109,7 +119,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endCo
 #menu li a {
     display: block;
     width : 100%;
-    padding-top: 20px;
+    padding-top: 15px;
     padding-right: 0;
     padding-left: 0;
     padding-bottom: 13px;
@@ -118,7 +128,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endCo
     font-weight: bold;
     line-height: 1;
     text-decoration: none;
-    font-family: "Times New Roman", Times, serif;
+    font-family: {font:menu font};
 }
 .fixed{
   position: fixed;
@@ -139,7 +149,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endCo
     color: #FFFFFF;
 }
 #kotei li a  {
-    padding-top: 28px;
+    padding-top: 25px;
 }
 #kotei li a:hover   {
     color: #E6E6E6;
@@ -176,7 +186,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#334d67',endCo
     padding-right: 8px;
     padding-left: 8px;
     padding-bottom: 4px;
-    width: {text:post width px between250and400}px;
+    width: {text:post width px index}px;
     margin-top: 6px;
     margin-right: 6px;
     margin-bottom: 6px;
@@ -262,7 +272,7 @@ blockquote{
     padding-right: 8px;
     padding-left: 8px;
     padding-bottom: 4px;
-    width: 600px;
+    width: {text:post width px permalink}px;
     margin-top: 62px;
     margin-right: auto;
     margin-bottom: 12px;
@@ -402,8 +412,7 @@ blockquote{
         
 <div class="meta">{block:NoteCount}<p>{NoteCountWithLabel}</p>{/block:NoteCount}<span class="buttons"><a class="fancybox" href="#{PostID}"><img src="http://dnote.biz/libs//share.png" style="width:24px; float:left; margin-right:6px; margin-top:1px" /></a>{ReblogButton}{LikeButton}</span></div>
     
-<div id="{PostID}" style="display:none;width:500px;">
-<p>{PostID}</p>
+<div id="{PostID}" class="share" style="display:none;width:500px;">
 <a href="http://twitter.com/share?text={URLEncodedTweetSummary}" target="_blank" onClick="$.fancybox.close()"><p>Twitter</p></a>
 <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank" onClick="$.fancybox.close()"><p>Facebook</p></a>
 <a href="https://plus.google.com/share?url={Permalink}" target="_blank" onClick="$.fancybox.close()">google+</a>
@@ -497,8 +506,7 @@ Yeah!
         <div class="meta">{block:NoteCount}<p>{NoteCountWithLabel}</p>{/block:NoteCount}<span class="buttons"><a class="fancybox" href="#{PostID}"><img src="http://dnote.biz/libs//share.png" style="width:24px; float:left; margin-right:6px; margin-top:1px" /></a>{ReblogButton}{LikeButton}</span></div>
     </div>
     
-<div id="{PostID}" style="display:none;width:500px;">
-<p>{PostID}</p>
+<div id="{PostID}" class="share" style="display:none;width:500px;">
 <a href="http://twitter.com/share?text={URLEncodedTweetSummary}" target="_blank" onClick="$.fancybox.close()"><p>Twitter</p></a>
 <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank" onClick="$.fancybox.close()"><p>Facebook</p></a>
 <a href="https://plus.google.com/share?url={Permalink}" target="_blank" onClick="$.fancybox.close()">google+</a>
