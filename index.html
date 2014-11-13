@@ -10,6 +10,9 @@
 <meta name="color:background" content="#f4f4f4"/>
 <meta name="color:menu gradation top" content="#334d67"/>
 <meta name="color:menu gradation bottom" content="#2b455f"/>
+<meta name="color:tittle font" content="#ffffff"/>
+<meta name="color:menu font" content="#ffffff"/>
+<meta name="color:menu font hover" content="#e6e6e6"/>
 <meta name="color:link text color" content="#fa3599"/>
 <meta name="font:tittle font" content="Times New Roman, Times, serif"/>
 <meta name="font:menu font" content="Times New Roman, Times, serif"/>
@@ -52,7 +55,8 @@
   <meta property="og:description" content="{block:Description}{MetaDescription}{/block:Description}">
 
 <link rel="stylesheet" type="text/css" href="http://dnote.biz/libs/jquery.fancybox.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://dnote.biz/libs/genericons.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://dnote.biz/libs/jquery.pinterestGrid.js"></script>
 <script src="http://dnote.biz/libs/jquery.autopager.js"></script>
 <script src="http://dnote.biz/libs/jquery.fancybox.pack.js"></script>
@@ -196,15 +200,16 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='{color:menu gr
     margin-left: 18px;
 }
 #tittle li a {
-    color: #FFFFFF;
+    color: {color:tittle font};
     font-family: {font:tittle font};
 }
 #kotei li a  {
     padding-top: 25px;
+    color: {color:menu font};
     font-family: {font:menu font};
 }
 #kotei li a:hover   {
-    color: #E6E6E6;
+    color: {color:menu font hover};
 }
 #header {
     width: 100%;
@@ -218,8 +223,6 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='{color:menu gr
     margin-top: 0px;
     margin-bottom: 0px;
 }
-/* pinterest grid
-----------------------------------------*/
 #container {
     margin-top: 40px;
     margin-right: auto;
@@ -228,7 +231,6 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='{color:menu gr
     position: relative;
     padding-bottom: 10px;
 }
-
 .grid {
     background: #fff;
     box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
@@ -392,6 +394,7 @@ footer p {
     word-wrap: break-word;
     font-style: italic;
     font-size: small;
+    font-family: "Times New Roman", Times, serif;
 }
 footer p a {
     text-decoration: none;
@@ -404,6 +407,17 @@ footer p a {
 .source {
     color: #aaaaaa;
     text-align: right;
+}
+.share {
+    width: 200px;
+}
+.share p {
+    color: #aaaaaa;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+    text-decoration: none;
 }
 {CustomCSS}
 </style>
@@ -491,12 +505,12 @@ footer p a {
         
 <div class="meta">{block:NoteCount}<p>{NoteCountWithLabel}</p>{/block:NoteCount}<span class="buttons"><a class="fancybox" href="#{PostID}"><img src="http://dnote.biz/libs//share.png" style="width:24px; float:left; margin-right:6px; margin-top:1px" /></a>{ReblogButton}{LikeButton}</span></div>
     
-<div id="{PostID}" class="share" style="display:none;width:500px;">
-<a href="http://twitter.com/share?text={URLEncodedTweetSummary}" target="_blank" onClick="$.fancybox.close()"><p>Twitter</p></a>
-<a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank" onClick="$.fancybox.close()"><p>Facebook</p></a>
-<a href="https://plus.google.com/share?url={Permalink}" target="_blank" onClick="$.fancybox.close()">google+</a>
-<a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}" target="_blank" onClick="$.fancybox.close()"><p>Mail</p></a>
-<a href="{Permalink}" onClick="$.fancybox.close()"><p>Open</p></a>
+<div id="{PostID}" class="share" style="display:none;">
+<a  href="http://twitter.com/share?text={URLEncodedTweetSummary}" target="_blank" onClick="$.fancybox.close()"><p class="genericon genericon-twitter">  Twitter</p></a><br>
+<a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank" onClick="$.fancybox.close()"><p class="genericon genericon-facebook">   Facebook</p></a><br>
+<a href="https://plus.google.com/share?url={Permalink}" target="_blank" onClick="$.fancybox.close()"><p class="genericon genericon-googleplus">   Google+</p></a><br>
+<a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}" target="_blank" onClick="$.fancybox.close()"><p class="genericon genericon-mail">    Mail</p></a><br>
+<a href="{Permalink}" onClick="$.fancybox.close()"><p class="genericon genericon-external">    Open Link</p></a>
 </div>
 
 </div>
@@ -579,16 +593,16 @@ Yeah!
         <p>{Asker}</p>
         {/block:Answer}
         
-        <div class="meta">{block:NoteCount}<p>{NoteCountWithLabel}</p>{/block:NoteCount}<span class="buttons"><a class="fancybox" href="#{PostID}"><img src="http://dnote.biz/libs//share.png" style="width:24px; float:left; margin-right:6px; margin-top:1px" /></a>{ReblogButton}{LikeButton}</span></div>
+        <div class="meta">{block:NoteCount}<p>{NoteCountWithLabel}</p>{/block:NoteCount}<span class="buttons"><a class="fancybox" href="#share"><img src="http://dnote.biz/libs//share.png" style="width:24px; float:left; margin-right:6px; margin-top:1px" /></a>{ReblogButton}{LikeButton}</span></div>
     </div>
     
-<div id="{PostID}" class="share" style="display:none;width:500px;">
-<a href="http://twitter.com/share?text={URLEncodedTweetSummary}" target="_blank" onClick="$.fancybox.close()"><p>Twitter</p></a>
-<a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank" onClick="$.fancybox.close()"><p>Facebook</p></a>
-<a href="https://plus.google.com/share?url={Permalink}" target="_blank" onClick="$.fancybox.close()">google+</a>
-<a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}" target="_blank" onClick="$.fancybox.close()"><p>Mail</p></a>
-<a href="{Permalink}" onClick="$.fancybox.close()"><p>Open</p></a>
+<div id="share" class="share" style="display:none;">
+<a  href="http://twitter.com/share?text={URLEncodedTweetSummary}" target="_blank" onClick="$.fancybox.close()"><p class="genericon genericon-twitter">  Twitter</p></a><br>
+<a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank" onClick="$.fancybox.close()"><p class="genericon genericon-facebook">   Facebook</p></a><br>
+<a href="https://plus.google.com/share?url={Permalink}" target="_blank" onClick="$.fancybox.close()"><p class="genericon genericon-googleplus">   Google+</p></a><br>
+<a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}" target="_blank" onClick="$.fancybox.close()"><p class="genericon genericon-mail">    Mail</p></a>
 </div>
+
 {/block:Posts}
 {/block:PermalinkPage}
 
